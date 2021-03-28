@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+{% for urls in url %}
+{{ urls.url }}
+{{ urls.clickcount }}
+{% endfor %}
+{% endblock %}

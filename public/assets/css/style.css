@@ -1,0 +1,245 @@
+body {
+    margin:0px;
+    padding:0px;
+    background: #fff;
+    font-size:15px;
+    font-family: 'Roboto', sans-serif;
+    color:#484848;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    flex:1;
+}
+a {
+    text-decoration: none;
+}
+/* ===== GENERAL ===== */
+.container {
+    max-width:1280px;
+    width:100%;
+    margin:0px auto;
+    display: flex;
+}
+.container.row {
+    flex-direction: column;
+}
+.col {
+    position: relative;
+}
+.w-60p {
+    width:60%;
+}
+.w-50p {
+    width:50%;
+}
+.w-40p {
+    width:40%;
+}
+.button {
+    display: inline-block;
+    padding:6px 8px;
+    color:#6216d2;
+    background:#aaa;
+    border-radius:6px;
+    border:rgba(0,0,0,0) solid 1px;
+}
+
+.button.button-primary {
+    background:#6216d2;
+    color:#fff;
+}
+.button.button-bordered {
+    background:none;
+    border:#6216d2 solid 1px;
+}
+
+/* ===== HEADER ===== */
+header {
+    background:#fff;
+    border-bottom:rgba(0,0,0,0.1);
+    padding:15px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+header .logo {
+    height:32px;
+}
+header .auth-buttons {
+    margin-left:auto;
+    display: flex;
+    flex-direction: row;
+}
+header .auth-buttons .button {
+    margin-left:8px;
+}
+
+
+/* ===== BANNER ==== */
+.banner {
+    background: #fff;
+    position: relative;
+    padding:30px 0;
+}
+.banner .container {
+    position: relative;
+    align-items: center;
+}
+.banner img {
+    display: block;
+    width:100%;
+}
+.banner h1 {
+    display: block;
+    font-size:3rem;
+    margin:0 0 15px 0;
+    z-index:1;
+}
+
+.banner p {
+    display: block;
+    font-size:1.5rem;
+    margin:0;
+    z-index:1;
+}
+.banner .button {
+    width:180px;
+    height:30px;
+    line-height: 30px;
+    text-align:center;
+    font-size: 1.2rem;
+    margin-top:15px;
+}
+/* ===== HOME PAGE ==== */
+.homepage {
+    flex:1;
+    flex-direction: column;
+}
+
+/* ==== URL FORM ==== */
+.url-form {
+    display: flex;
+    margin-bottom:30px;
+    padding:30px 0;
+    flex-direction: column;
+    background: linear-gradient(190deg, rgba(14,158,251,1) 0%, rgba(92,255,248,1) 100%);
+}
+.url-form .form-error {
+    color:#fff;
+    background:rgba(239,83,80,1);
+    text-align: center;
+    margin-bottom:8px;
+    padding:10px 20px;
+    display: none;
+}
+.url-form .form-error.show {
+    display: block;
+}
+.url-form .form-success {
+    background:#007a41;
+    color:#fff;
+    text-align: center;
+    margin-bottom:8px;
+    padding:10px 20px;
+    display:none;
+}
+.url-form .form-success.show {
+    display: block;
+}
+.url-form form {
+    display: flex;
+    flex-direction: row;
+    flex:1;
+}
+.url-form form input {
+    padding:16px 32px;
+    font-size:1.8rem;
+    border-radius:6px;
+    border:rgba(0,0,0,0.1) solid 1px;
+    outline:none;
+    background:#fff;
+    flex:1;
+    font-weight: normal;
+}
+.url-form form input.success {
+    font-weight: bold;
+    color:#007a41;
+}
+.url-form form input.error {
+    color:#D50000;
+    border:#D50000 solid 1px;
+}
+.url-form .button {
+    padding:16px 32px;
+    font-size:1.6rem;
+    width:180px;
+    margin-left:20px;
+    text-align: center;
+    outline:none;
+}
+.url-form .button.copy {
+    background:#007a41;
+}
+.url-form-terms {
+    flex:1;
+    text-align: center;
+    color:#39004d;
+    font-size:0.8rem;
+    padding:15px 0;
+}
+.url-form-terms a {
+    text-decoration: underline;
+    color:#39004d;
+}
+
+
+/* ===== FEATURES ===== */
+.features {
+    text-align: center;
+}
+.features .features-title {
+    font-size:2rem;
+    margin:0 0 30px 0;
+}
+.features .features-description {
+    margin:0 0 30px 0;
+}
+.feature-rows {
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    padding: 0 60px;
+}
+
+.feature-rows .feature {
+    margin-right:120px;
+}
+.feature-rows .feature:last-child {
+    margin-right:0;
+}
+
+.feature-rows .feature h3 {
+    font-size:1.5rem;
+    margin:0 0 15px 0;
+}
+.feature-rows .feature p {
+    margin:0;
+}
+.feature-rows .feature img {
+    width:100%;
+    display: block;
+    margin-bottom:20px;
+}
+.features .container {
+    padding-bottom:60px;
+    margin-bottom:60px;
+    border-bottom:rgba(0,0,0,0.08) solid 1px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background:#484848;
+    color:#fff;
+    padding:15px 20px;
+}
+

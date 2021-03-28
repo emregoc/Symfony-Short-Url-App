@@ -1,0 +1,42 @@
+security:
+    encoders:
+        App\Entity\User:
+            algorithm: auto
+
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        # used to reload user from session & other features (e.g. switch_user)
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email # unique(benzersiz) keyi email 
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: true
+            lazy: true
+            provider: app_user_provider
+            guard:
+                authenticators:
+                    - App\Security\AppLoginAuthenticator # olusturdugumuz Authenticator'ı buraya ekledi
+            logout:
+                path: app_logout # çıkış için logout path'i
+                # where to redirect after logout
+                # target: app_any_route
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+     - { path: ^/admin, roles: ROLE_ADMIN } # giriş yapan kişinin rolü admin olan admin sayfasına gidebilir #
+     - { path: ^/profile, roles: ROLE_USER } # giriş yapan kişinin rolü user olan user sayfasına gidebilir #
+     #- { path: '^/*', roles: [IS_AUTHENTICATED_FULLY] }
+
+

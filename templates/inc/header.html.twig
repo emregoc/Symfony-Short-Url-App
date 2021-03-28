@@ -1,0 +1,30 @@
+
+<header>
+
+    <div class="container">
+        <img src="https://txt.1001fonts.net/img/txt/dHRmLjQ0LmU0NTQyMS5jR0YwYUEsLC4w/rolling-beat-personal-use.regular.png" class="logo" alt="Short Url Logo" />
+
+        <div class="margin">
+            <div class="row">
+                <div class="col-xs-12 ">
+                  <nav>
+                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="/home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+                      {% for item in bannermenu_items %}
+                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="{{ item.urlname }}" role="tab" aria-controls="nav-profile" aria-selected="false">{{ item.name }}</a>
+                      {% endfor %}
+                      <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="/user/usercontact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+                     </div>
+                  </nav>
+                
+                </div>
+              </div>
+        </div>
+      </div>
+        </div>
+        <div class="auth-buttons">
+            <a href="/login" class="button button-primary">Login</a> {# login sayfasına gider #}
+            <a href="/addregister" class="button button-bordered">Signup</a> {# addregister(kayıt) sayfasına gider #}
+        </div>
+    </div>
+</header>

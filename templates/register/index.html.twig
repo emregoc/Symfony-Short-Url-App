@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RegisterController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>KAYIT BİLGİLERİNİ GİRİN</h1>
+
+    <form method="post" action="/register">
+        <input type="text" name="email"> 
+        <input type="text" name="password"> 
+
+        <button type="submit"> kayıt olustur </button>
+    </form>
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ 'C:/Users/User/Desktop/bootcamp_ders_ornekleri/symfony_odev_13_03_2021/symfony_odev/src/Controller/RegisterController.php'|file_link(0) }}">src/Controller/RegisterController.php</a></code></li>
+        <li>Your template at <code><a href="{{ 'C:/Users/User/Desktop/bootcamp_ders_ornekleri/symfony_odev_13_03_2021/symfony_odev/templates/register/index.html.twig'|file_link(0) }}">templates/register/index.html.twig</a></code></li>
+    </ul>
+</div>
+{% endblock %}

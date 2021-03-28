@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %} {{ 'Short URL' | trans }} {% endblock %}</title>
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap" rel="stylesheet">
+        
+
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css')  }}" />
+
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            {#{{ encore_entry_link_tags('app') }}#}
+        {% endblock %}
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
+
+    </head>
+    <body>
+
+        {% block header %} {% endblock %}
+
+        {% block body %} Merhaba Dünya !!!! {% endblock %}
+
+        {% block footer %} {% endblock %}
+
+        <script src="{{ asset('assets/js/app.js')  }}" type="application/javascript"></script>
+    </body>
+</html>

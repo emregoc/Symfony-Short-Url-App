@@ -1,0 +1,181 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block header %}
+    {% include 'inc/header.html.twig' %}
+{% endblock %}
+
+{% block body %}
+
+<style> {# burdaki css lerde header.html.twig içerisindeki yukardaki menü için#}
+nav > .nav.nav-tabs{
+
+  border: none;
+    color:#fff;
+    border-radius:0;
+
+}
+nav > div a.nav-item.nav-link,
+nav > div a.nav-item.nav-link.active
+{
+  border: none;
+    padding: 5px 25px;
+    color:#fff;
+    background:#F4A460;
+    border-radius:0;
+}
+
+nav > div a.nav-item.nav-link.active:after
+ {
+  content: "";
+  position: relative;
+  bottom: -60px;
+  left: -10%;
+  border: 15px solid transparent;
+  border-top-color: #e74c3c ;
+}
+.tab-content{
+  background: #fdfdfd;
+    line-height: 25px;
+    border: 1px solid #ddd;
+    border-top:5px solid #e74c3c;
+    border-bottom:5px solid #e74c3c;
+    padding:20px 25px;
+}
+
+nav > div a.nav-item.nav-link:hover,
+nav > div a.nav-item.nav-link:focus
+{
+  border: none;
+    background: #e74c3c;
+    color:#fff;
+    border-radius:0;
+    transition:background 0.20s linear;
+}
+.margin{
+    margin-left:400px;
+    margin-top:10px;
+}
+</style>
+    <div class="homepage">
+
+        <section class="banner">
+            <div class="container">
+                <div class="col w-50p">
+                {% for item in page_items %}
+                    <h1>{{ item.bannerleft }}</h1>
+                {% endfor %}
+                    <p>A URL shortener built with powerful tools to
+                        help you grow and protect your brand.
+                    </p>
+                    <a href="/addregister" class="button button-primary">Get started for free</a>
+                </div>
+                <div class="col w-50p">
+                {% for item in page_items %} {# page_items homecontroller.php den geliyor #}
+                  {#<img src="asset(assets/images/{{ item.banner }})"/>#}  
+                  <img src="assets/images/{{ item.banner }}"/>
+                {% endfor %}
+                </div>
+            </div>
+        </section>
+
+
+
+        <div class="url-form">
+            <div class="container row">
+
+                <form action="/url/create" method="post" onsubmit="return createShortUrl()">
+                    <input id="urlinput" type="text" name="url" placeholder="Shorten your link" />
+                    <button id="shortenButton" class="button button-primary" type="submit">Shorten</button>
+                </form>
+
+                <div class="url-form-terms">
+                    {% for item in page_items %}
+                    {{ item.urlundertext }}
+                {% endfor %}
+                    <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a>
+                </div>
+
+                <div class="flash-messages">
+                    <div class="form-error"></div>
+                    <div class="form-success"></div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <section class="features">
+            <div class="container row">
+                {% for item in page_items %}
+                  <h3 class="features-title"> {{ item.featureshead }}</h3> 
+                {% endfor %}
+                
+                {% for item in page_items %}
+                
+                <p class="features-description">
+                    {{ item.featuresparagraf }}
+                </p>
+                {% endfor %}
+
+                <div class="feature-rows">
+                    <div class="feature">
+                        {% for item in page_items %} {# page_items homecontroller.php den geliyor #}
+                            <img src="assets/images/{{ item.colomnleftimg }}"/>
+                         {% endfor %}
+                         
+                         <h3>Inspire trust</h3>
+                         {% for item in page_items %}
+                         <p> 
+                         {{ item.colomnleftparagraf }} 
+                         </p>
+                         {% endfor %}
+                        
+                        
+                       
+                    </div>
+
+                    <div class="feature">
+                         {% for item in page_items %} {# page_items homecontroller.php den geliyor #}
+                            <img src="assets/images/{{ item.colomnmiddleimg }}"/>
+                         {% endfor %}
+                        <h3>Boost results</h3>
+                        {% for item in page_items %}
+                         <p> 
+                         {{ item.colomnmiddleparagraf }} 
+                         </p>
+                         {% endfor %}
+                    </div>
+
+                    <div class="feature">
+                         {% for item in page_items %} {# page_items homecontroller.php den geliyor #}
+                            <img src="assets/images/{{ item.colomnrightimg }}"/>
+                         {% endfor %}
+                        <h3>Gain control</h3>
+                        {% for item in page_items %}
+                         <p> 
+                         {{ item.colomnrightparagraf }} 
+                         </p>
+                         {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section class="happy-customers">
+            <div class="container">
+
+            </div>
+        </section>
+
+    </div>
+{% endblock %}
+
+
+{% block footer %}
+    {% include 'inc/footer.html.twig' %}
+{% endblock %}
