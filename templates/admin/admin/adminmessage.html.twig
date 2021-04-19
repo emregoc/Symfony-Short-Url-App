@@ -152,10 +152,17 @@
   		color: #8ac1f6;
   		text-decoration: none;
   	}
-	  .welcome{
+	.welcome{
 		margin-left: 10px;
 		margin-top: -30px;
 	}
+	.textlimit{ 
+	 white-space: nowrap;
+  	 overflow: hidden;
+ 	 text-overflow: ellipsis;
+ 	 max-width: 200px;
+	}
+	
 }
 </style>
 
@@ -172,7 +179,7 @@
 		    <ul class="navbar-nav ml-auto">
 		      <li class="nav-item dropdown ets-right-0">
 		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <input type="button" class="btn" value="Settings">
+                   <input type="button" class="btn" value="Settings">
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 		          <a class="dropdown-item" href="{{ path('app_logout') }}">Çıkış</a>
@@ -180,7 +187,7 @@
 		          <div class="dropdown-divider"></div>
 		          <a class="dropdown-item" href="#">Something else here</a>#} 
 		        </div>
-		      </li>	
+		      </li>
 		    </ul>
 		</nav>
 	  	<div class="side-bar">
@@ -223,6 +230,7 @@
 	  			</div>
 	  		</div>
 	  	</div>
+		  
   	<div class="main-body-content w-100 ets-pt">
 	  <div class="welcome row text-center">
 		<h4 class="row welcome"> Hoşgeldiniz : 
@@ -231,25 +239,27 @@
   		<div class="table-responsive bg-light">
   			<table class="table">
               <tr>
-  					<th>Url İd</th>
-  					<th>Kısaltılan Url</th>
-  					<th>Url Hash</th>
-                    <th>Aktiflik</th>
-  					<th>Güncelle</th>
-  					<th>Sil</th>
-                    <th>Pasif Yap</th>
-                    <th>Aktif Yap</th>
+  					<th>Message İd</th>
+  					<th>User Name</th>
+  					<th>User Surname </th>
+                    <th>User Email</th>
+					<th>Message</th>
+  					<th>Okundu</th>
+					<th>Mesajı Oku</th>
+  					<th>Cevaplandı</th>
+					<th>Mesajı Cevapla</th>
   				</tr>
-              {% for item in adminurl_items %}
+              {% for item in message_items %}
   				<tr>
   					<td>{{ item.id }}</td>
-  					<td>{{ item.url }}</td>
-  					<td>{{ item.urlHash }}</td>
-                    <td>{{ item.isActive }}</td>
-  					<td><a href="{{ path('admin_url_updatepagelist', {'id': item.id}) }}"><input type="submit" class="btn" value="Güncelle" name="Güncelle"></a></td>
-  					<td><a href="{{ path('admin_url_deletepage', {'id': item.id}) }}"><input type="submit" class="btn" value="Sil" name="delete"></a></td>
-                    <td><a href="{{ path('admin_url_pasifpage', {'id': item.id}) }}"><input type="submit" class="btn" value="Pasif Yap" name="pasif"></a></td>
-					<td><a href="{{ path('admin_url_aktifpage', {'id': item.id}) }}"><input type="submit" class="btn" value="Aktif Yap" name="aktif"></a></td>
+  					<td>{{ item.name }}</td>
+  					<td>{{ item.surname }}</td> 
+                    <td>{{ item.email }}</td> 
+					<td class="textlimit">{{ item.message }}</td> {# textlimit css'i ile mesaj içeriğini sınırladık #}
+  					<td>{{ item.okundu }}</td>
+  					<td><a href="{#{{ path('admin_user_deletepage', {'id': item.id}) }}#}"><input type="submit" class="btn" value="Devamını Oku" name="delete"></a></td>
+                    <td>{{ item.cevaplandi }}</td>
+					<td><a href="{#{{ path('admin_user_aktifpage', {'id': item.id}) }}#}"><input type="submit" class="btn" value="Cevapla" name="aktif"></a></td>
   				</tr>
   				{% endfor %}
   			</table>

@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Message;
 use App\Entity\Url;
 use App\Entity\UrlStats;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -32,6 +33,22 @@ class AdminController extends AbstractController
         ]);
     }
     
+    #[Route('/admin/message', name: 'admin_message_page')]
+    public function adminmessage(): Response
+    {
+     
+         $em = $this->getDoctrine()->getManager();
+         $urlRespository = $em->getRepository(Message::class);
+         
+         $message_items = $urlRespository->findAll();
+ 
+        // $url_items = $urlRespository->findBy(['url']);
+         
+         return $this->render('admin/admin/adminmessage.html.twig', [
+                 'message_items' => $message_items
+         ]);
+    }
+
    #[Route('/adminurl', name: 'admin_url_page')]
    public function adminurl(): Response
    {

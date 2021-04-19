@@ -37,6 +37,16 @@ class Message
      */
     private $message;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $okundu;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $cevaplandi;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +96,30 @@ class Message
     public function setMessage(?string $message): self
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+    public function getOkundu(): ?string
+    {
+        return $this->okundu;
+    }
+
+    public function setOkundu(?string $okundu): self
+    {
+        $this->okundu = $okundu;
+
+        return $this;
+    }
+
+    public function getCevaplandi(): ?string
+    {
+        return $this->cevaplandi;
+    }
+
+    public function setCevaplandi(?string $cevaplandi): self
+    {
+        $this->cevaplandi = $cevaplandi;
 
         return $this;
     }
